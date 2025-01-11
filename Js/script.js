@@ -22,12 +22,13 @@ function modal(titre, message) {
         document.querySelector("#modal").classList.toggle("active");
     }
 }
+
+
 window.addEventListener("load", () => {
     compteARebours();
     document.getElementById("commander").addEventListener("click", () => {
         modal("Page en construction", "Désolé, commander n'est pas pour tout de suite");
     });
-
     document.querySelector("#close").addEventListener("click", () => {
         document.querySelector("#modal").classList.remove("active");
     });
