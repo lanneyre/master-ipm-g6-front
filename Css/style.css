@@ -1,0 +1,214 @@
+@font-face {
+    font-family: 'future_edgeregular';
+    src: url('font/future/future_edge-webfont.woff2') format('woff2'),
+        url('font/future/future_edge-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'future_edgeitalic';
+    src: url('font/future/future_edge_italic-webfont.woff2') format('woff2'),
+        url('font/future/future_edge_italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'digital_numbersregular';
+    src: url('font/digital-numbers/digitalnumbers-regular-webfont.woff2') format('woff2'),
+        url('font/digital-numbers/digitalnumbers-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+body {
+    margin: 0;
+    background: rgb(49, 76, 97);
+    background: linear-gradient(180deg, rgba(49, 76, 97, 1) 0%, rgba(49, 76, 97, 1) 35%, rgba(124, 180, 179, 1) 100%);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+header {
+    background: black;
+    height: 100px;
+    color: whitesmoke;
+    width: 100%;
+    border: 5px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+header a {
+    color: whitesmoke;
+    border: 5px solid;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+}
+
+header a:hover {
+    color: rgb(124, 180, 179);
+
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+}
+
+.navtop {
+    font-family: future_edgeregular;
+    display: flex;
+    align-items: center;
+    /* padding: 5px 0; */
+    border-bottom: 5px solid black;
+}
+
+#commander {
+    background: linear-gradient(to left, rgb(49, 76, 97), rgb(124, 180, 179));
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 5px;
+}
+
+a#commander:hover {
+    border: 0;
+    color: whitesmoke;
+    background: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+}
+
+a.logo figure {
+    display: flex;
+    align-items: center;
+    font-family: future_edgeitalic;
+    font-size: larger;
+}
+
+a.logo {
+    border: none;
+}
+
+a.logo img {
+    width: 80px;
+    margin-right: 50px;
+}
+
+main {
+    padding-top: 100px;
+}
+
+article {
+    background-image: url(../Images/solar-system-11111_1280.jpg);
+    background-size: cover;
+    height: 700px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#horloge {
+    position: absolute;
+    top: 10%;
+    right: 20%;
+    color: whitesmoke;
+    font-family: digital_numbersregular;
+    font-size: xx-large;
+}
+
+.miseenavant {
+    color: whitesmoke;
+    margin-left: 10%;
+}
+
+.comptearebour {
+    font-family: digital_numbersregular;
+}
+
+footer {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: rgb(49, 76, 97);
+    color: whitesmoke;
+}
+
+footer>a {
+    color: whitesmoke;
+    border-color: rgb(49, 76, 97);
+    border-bottom: 5px solid;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    font-family: future_edgeregular;
+}
+
+footer>a:hover {
+    color: rgb(124, 180, 179);
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+}
+
+footer>p {
+    width: 100%;
+}
+
+#modal {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal.active {
+    display: flex;
+}
+
+#modal>#content {
+    position: relative;
+    padding: 10px;
+    width: 40%;
+    border: 5px solid;
+    background-color: whitesmoke;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(135deg, rgb(49, 76, 97), rgb(124, 180, 179));
+}
+
+#modal>#content>#close {
+    float: right;
+    font-size: 25px;
+    color: rgb(49, 76, 97);
+    cursor: pointer;
+}
