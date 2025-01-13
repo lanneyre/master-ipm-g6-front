@@ -28,6 +28,15 @@ window.addEventListener("load", () => {
     document.getElementById("commander").addEventListener("click", () => {
         modal("Page en construction", "Désolé, commander n'est pas pour tout de suite");
     });
+    document.querySelectorAll(".vedettes .btn").forEach((elt) => {
+        let t = (elt.parentElement.innerText).replaceAll("Réservez maintenant", "");
+        // console.log(t);
+
+        elt.addEventListener("click", () => {
+            modal(t, "Désolé, commander n'est pas pour tout de suite");
+        });
+    })
+
     document.querySelector("#close").addEventListener("click", () => {
         document.querySelector("#modal").classList.remove("active");
     });

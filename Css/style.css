@@ -32,7 +32,6 @@ body {
     background: linear-gradient(180deg, rgba(49, 76, 97, 1) 0%, rgba(49, 76, 97, 1) 35%, rgba(124, 180, 179, 1) 100%);
     background-repeat: no-repeat;
     background-size: contain;
-
 }
 
 header {
@@ -54,12 +53,14 @@ header {
 }
 
 h1,
-h2,
-h3,
-h4 {
+h2 {
     color: whitesmoke;
     text-align: center;
 
+}
+
+h3 {
+    color: rgb(49, 76, 97);
 }
 
 a {
