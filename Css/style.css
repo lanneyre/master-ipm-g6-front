@@ -50,7 +50,7 @@ header {
     align-items: center;
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 3;
 }
 
 h1,
@@ -239,6 +239,10 @@ footer>p {
 .vedettes {
     display: flex;
     justify-content: space-around;
+    background-image: url(../Images/BGvedettes.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 
 .vedettes>figure {
