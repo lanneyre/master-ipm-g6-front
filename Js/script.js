@@ -13,6 +13,14 @@ function compteARebours() {
         + test.getSeconds().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " secondes "
 }
 
+function horloge() {
+    let h = new Date();
+    document.getElementById("horloge").innerText =
+        h.getHours().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + ":"
+        + h.getMinutes().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + ":"
+        + h.getSeconds().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false });
+}
+
 function modal(titre, message) {
     if (titre && message) {
         document.querySelector("#modal>#content>h3").innerText = titre;
@@ -25,6 +33,7 @@ function modal(titre, message) {
 
 window.addEventListener("load", () => {
     setInterval(compteARebours, 1000);
+    setInterval(horloge, 1000);
     document.getElementById("commander").addEventListener("click", () => {
         modal("Page en construction", "Désolé, commander n'est pas pour tout de suite");
     });
