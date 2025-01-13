@@ -1,19 +1,16 @@
 function compteARebours() {
-    let dateDepart = (new Date(2342, 10, 4)).getTime();
-    let now = (new Date()).getTime();
-    let nbJt = Math.floor((dateDepart - now) / 1000 / 60 / 60 / 24)
+    let dateDepart = (new Date(2342, 10, 4, 12, 0, 0));
+    let now = (new Date());
 
-    console.log(dateDepart - now);
+    let test = new Date((dateDepart.getFullYear() - now.getFullYear()), (dateDepart.getMonth() - now.getMonth()), (dateDepart.getDate() - now.getDate()), (dateDepart.getHours() - now.getHours()), (dateDepart.getMinutes() - now.getMinutes()), (dateDepart.getSeconds() - now.getSeconds()));
 
-    let nbS = Math.floor((nbJt / 365.25) / 100);
-    let nbA = Math.floor((nbJt - (nbS * 100 * 365.25)) / 365.25);
-    let nbM = Math.floor((nbJt - (((nbS * 100) + nbA) * 365.25)) / (365.25 / 12));
-    let nbJ = Math.floor((nbJt - nbM) / 365.25 / 12);
-    //00s00a00m00j
-
-    document.getElementById("comptearebour").innerText = nbS.toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + ":" + nbA.toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + ":"
-        + nbM.toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + ":"
-        + nbJ.toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false })
+    document.getElementById("comptearebour").innerText =
+        test.getFullYear().toLocaleString("fr", { minimumIntegerDigits: 3, useGrouping: false }) + "a "
+        + test.getMonth().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + "m "
+        + test.getDate().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + "j "
+        + test.getHours().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + "h "
+        + test.getMinutes().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + "m "
+        + test.getSeconds().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + "s "
 }
 
 function modal(titre, message) {
@@ -27,7 +24,7 @@ function modal(titre, message) {
 
 
 window.addEventListener("load", () => {
-    compteARebours();
+    setInterval(compteARebours, 1000);
     document.getElementById("commander").addEventListener("click", () => {
         modal("Page en construction", "Désolé, commander n'est pas pour tout de suite");
     });
