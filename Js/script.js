@@ -1,7 +1,9 @@
 function compteARebours() {
-    let dateDepart = new Date(2342, 10, 4);
-    let now = new Date();
+    let dateDepart = (new Date(2342, 10, 4)).getTime();
+    let now = (new Date()).getTime();
     let nbJt = Math.floor((dateDepart - now) / 1000 / 60 / 60 / 24)
+
+    console.log(dateDepart - now);
 
     let nbS = Math.floor((nbJt / 365.25) / 100);
     let nbA = Math.floor((nbJt - (nbS * 100 * 365.25)) / 365.25);
