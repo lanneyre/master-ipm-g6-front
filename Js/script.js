@@ -5,12 +5,12 @@ function compteARebours() {
     let test = new Date((dateDepart.getFullYear() - now.getFullYear()), (dateDepart.getMonth() - now.getMonth()), (dateDepart.getDate() - now.getDate()), (dateDepart.getHours() - now.getHours()), (dateDepart.getMinutes() - now.getMinutes()), (dateDepart.getSeconds() - now.getSeconds()));
 
     document.getElementById("comptearebour").innerText =
-        test.getFullYear().toLocaleString("fr", { minimumIntegerDigits: 3, useGrouping: false }) + "a "
-        + test.getMonth().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + "m "
-        + test.getDate().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + "j "
-        + test.getHours().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + "h "
-        + test.getMinutes().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + "m "
-        + test.getSeconds().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + "s "
+        test.getFullYear().toLocaleString("fr", { minimumIntegerDigits: 3, useGrouping: false }) + " ans "
+        + test.getMonth().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " mois "
+        + test.getDate().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " jours "
+        + test.getHours().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " heures "
+        + test.getMinutes().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " minutes "
+        + test.getSeconds().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " secondes "
 }
 
 function modal(titre, message) {
