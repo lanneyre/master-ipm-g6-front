@@ -1,3 +1,4 @@
+//créer le compte à rebours en créant une date à partir de la soustraction de la date d'aujourd'hui à la date de départ.
 function compteARebours() {
     let dateDepart = (new Date(2342, 10, 4, 12, 0, 0));
     let now = (new Date());
@@ -13,6 +14,7 @@ function compteARebours() {
         + test.getSeconds().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " secondes "
 }
 
+//affiche l'horloge
 function horloge() {
     let h = new Date();
     document.getElementById("horloge").innerText =
@@ -21,6 +23,7 @@ function horloge() {
         + h.getSeconds().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false });
 }
 
+//fonction qui permet de créer une boîte de dialogue plus sympatique que celle de js
 function modal(titre, message) {
     if (titre && message) {
         document.querySelector("#modal>#content>h3").innerText = titre;
@@ -32,11 +35,18 @@ function modal(titre, message) {
 
 
 window.addEventListener("load", () => {
+    //temps réel 
+    //lance CompteARebours toutes les secondes 
     setInterval(compteARebours, 1000);
+    //lance horloge toutes les secondes
     setInterval(horloge, 1000);
+
+    // Création d'une boîte de dialogue quand on click sur le boutton commander
     document.getElementById("commander").addEventListener("click", () => {
         modal("Page en construction", "Désolé, commander n'est pas pour tout de suite");
     });
+
+    //on récupère la liste des boutons des produits vedettes et on ajoute l'ouverture du modal avec un texte personnalisé
     document.querySelectorAll(".vedettes .btn").forEach((elt) => {
         let t = (elt.parentElement.innerText).replaceAll("Réservez maintenant", "");
         // console.log(t);
@@ -45,7 +55,7 @@ window.addEventListener("load", () => {
             modal(t, "Désolé, commander n'est pas pour tout de suite");
         });
     })
-
+    //evenement pour fermer la modal
     document.querySelector("#close").addEventListener("click", () => {
         document.querySelector("#modal").classList.remove("active");
     });
