@@ -320,7 +320,6 @@ footer>p {
     border: 1px solid whitesmoke;
     margin-bottom: 5px;
     color: whitesmoke;
-    font-weight: bold;
     font-family: future_edgeregular;
 }
 
@@ -462,4 +461,36 @@ footer>p {
 
 .carousel-buttons button:hover {
     background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.carousel-buttons button {
+    pointer-events: all;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.carousel-buttons button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+main.equipe {
+    text-align: center;
+}
+main.equipe .btn{
+    
 }

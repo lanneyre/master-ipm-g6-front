@@ -139,10 +139,24 @@ window.addEventListener("load", () => {
         const slides = Array.from(track.children);
         const nextButton = document.getElementById('next');
         const prevButton = document.getElementById('prev');
+        const togglePlayButton = document.getElementById('togglePlay');
         let currentIndex = 0;
+        let autoPlayInterval;
+        let isPlaying = true;
 
         function updateCarousel(index) {
             track.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel(currentIndex);
+            }, 3000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
         }
 
         nextButton.addEventListener('click', () => {
@@ -155,10 +169,18 @@ window.addEventListener("load", () => {
             updateCarousel(currentIndex);
         });
 
-        // Auto-play functionality
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateCarousel(currentIndex);
-        }, 3000); // Change slide every 3 seconds
+        togglePlayButton.addEventListener('click', () => {
+            if (isPlaying) {
+                stopAutoPlay();
+                togglePlayButton.innerHTML = '<i class="fa-solid fa-play"></i> Reprendre';
+            } else {
+                startAutoPlay();
+                togglePlayButton.innerHTML = '<i class="fa-solid fa-pause"></i> Pause';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Start auto-play on load
+        startAutoPlay();
     }
 })
