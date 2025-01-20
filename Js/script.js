@@ -47,19 +47,7 @@ let produits = [
     { titre: "Safari météorique dans la ceinture d’astéroïdes", image: "Mars.png", desc: "Partez à la chasse aux météores et explorez les richesses minières de la ceinture d’astéroïdes, accompagnés par des guides spécialisés.", prix: 49000000.00, dateDepart: new Date(2343, 8, 23, 12, 0, 0) },
     { titre: "Excursion culturelle sur Vénus", image: "Venus.png", desc: "Découvrez les bases humaines installées dans les nuages de Vénus et apprenez l’histoire fascinante de la conquête de cette planète inhospitalière.", prix: 19000000.00, dateDepart: new Date(2342, 11, 29, 12, 0, 0) }
 ]
-{/* <section class="produit">
-            <figure>
-                <img src="" alt="">
-                <figcaption></figcaption>
-            </figure>
-            <aside>
-                <h4>Prix : </h4>
-                <p>Date de départ : </p>
-            </aside>
-            <article>
 
-            </article>
-        </section> */}
 function createProduct(produit) {
     let sec = document.createElement("section")
     sec.classList.add("produit")
