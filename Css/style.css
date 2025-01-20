@@ -393,3 +393,73 @@ footer>p {
     font-weight: bold;
     font-size: 1.5rem;
 }
+
+.carousel {
+    width: 90%;
+    max-width: 600px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    margin: 50px auto;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.carousel-slide img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.carousel-slide h3 {
+    margin: 15px 0 5px;
+}
+
+.carousel-slide p {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.carousel-slide .bio {
+    margin-top: 10px;
+    font-size: 0.85em;
+    color: #ccc;
+}
+
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.carousel-buttons button {
+    pointer-events: all;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.carousel-buttons button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
