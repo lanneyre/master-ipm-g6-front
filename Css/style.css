@@ -1,669 +1,1001 @@
+:root {
+    --primary-color: rgb(49, 76, 97);
+    /* Couleur principale */
+    --secondary-color: rgb(124, 180, 179);
+    /* Couleur secondaire */
+    --text-color: whitesmoke;
+    /* Couleur du texte */
+    --border-width: 5px;
+    /* Largeur des bordures */
+    --border-radius: 5px;
+    /* Rayon des bordures arrondies */
+    --font-family-regular: 'future_edgeregular';
+    /* Police régulière */
+    --font-family-italic: 'future_edgeitalic';
+    /* Police italique */
+    --font-family-digital: 'digital_numbersregular';
+    /* Police numérique */
+    --gradient: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    /* Gradient de droite à gauche */
+    --gradient-reverse: linear-gradient(to left, var(--primary-color), var(--secondary-color));
+    /* Gradient de gauche à droite */
+}
+
 @font-face {
     font-family: 'future_edgeregular';
+    /* Définition de la police régulière */
     src: url('font/future/future_edge-webfont.woff2') format('woff2'),
         url('font/future/future_edge-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
     font-family: 'future_edgeitalic';
+    /* Définition de la police italique */
     src: url('font/future/future_edge_italic-webfont.woff2') format('woff2'),
         url('font/future/future_edge_italic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
     font-family: 'digital_numbersregular';
+    /* Définition de la police numérique */
     src: url('font/digital-numbers/digitalnumbers-regular-webfont.woff2') format('woff2'),
         url('font/digital-numbers/digitalnumbers-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
+body,
+html {
+    height: 100%;
+    /* Assure que le corps et le html prennent toute la hauteur de la fenêtre */
+}
 
 body {
     margin: 0;
-    background: rgb(49, 76, 97);
-    background: linear-gradient(180deg, rgba(49, 76, 97, 1) 0%, rgba(49, 76, 97, 1) 35%, rgba(124, 180, 179, 1) 100%);
-    background-repeat: no-repeat;
+    /* Supprime les marges par défaut */
+    background: var(--primary-color);
+    /* Couleur de fond principale */
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-color) 35%, var(--secondary-color) 100%);
+    /* Gradient de fond */
+    /* background-repeat: no-repeat; */
+    /* Répétition de l'image de fond désactivée */
     background-size: contain;
+    /* Ajuste la taille de l'image de fond */
+    display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
+    flex-direction: column;
+    /* Disposition en colonne */
 }
 
 header {
     background: black;
+    /* Couleur de fond de l'en-tête */
     height: 100px;
-    color: whitesmoke;
+    /* Hauteur de l'en-tête */
+    color: var(--text-color);
+    /* Couleur du texte */
     width: 100%;
-    border: 5px solid;
+    /* Largeur de l'en-tête */
+    border: var(--border-width) solid;
+    /* Bordure */
     border-image-slice: 1;
-    border-image-source: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+    /* Tranche de l'image de bordure */
+    border-image-source: var(--gradient);
+    /* Source de l'image de bordure */
     border-left: 0;
+    /* Pas de bordure à gauche */
     border-right: 0;
+    /* Pas de bordure à droite */
     border-top: 0;
+    /* Pas de bordure en haut */
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     align-items: center;
+    /* Aligne les éléments au centre verticalement */
     position: fixed;
+    /* Position fixe en haut de la page */
     top: 0;
+    /* En haut de la page */
     z-index: 3;
+    /* Priorité de superposition */
+    flex-shrink: 0;
+    /* Empêche l'en-tête de se rétrécir */
 }
 
 h1,
 h2 {
-    color: whitesmoke;
+    color: var(--text-color);
+    /* Couleur du texte */
     text-align: center;
-
+    /* Aligne le texte au centre */
 }
 
 h3 {
-    color: rgb(49, 76, 97);
-}
-
-main p {
-    /* background-color: rgba(255, 255, 255, 0.5); */
+    color: var(--primary-color);
+    /* Couleur du texte */
 }
 
 a {
     text-decoration: none;
+    /* Supprime la décoration du texte des liens */
 }
 
 header a {
-    color: whitesmoke;
-    border: 5px solid;
+    color: var(--text-color);
+    /* Couleur du texte des liens dans l'en-tête */
+    border: var(--border-width) solid;
+    /* Bordure des liens */
     border-left: 0;
+    /* Pas de bordure à gauche */
     border-right: 0;
+    /* Pas de bordure à droite */
     border-top: 0;
+    /* Pas de bordure en haut */
 }
 
 header a:hover {
-    color: rgb(124, 180, 179);
-
+    color: var(--secondary-color);
+    /* Couleur du texte au survol */
     border-image-slice: 1;
-    border-image-source: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
-
+    /* Tranche de l'image de bordure */
+    border-image-source: var(--gradient);
+    /* Source de l'image de bordure */
 }
 
 img {
     width: 100%;
+    /* Largeur des images */
 }
 
 nav {
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     justify-content: space-around;
+    /* Espace autour des éléments */
     width: 70%;
+    /* Largeur de la navigation */
 }
 
 .navtop {
-    font-family: future_edgeregular;
+    font-family: var(--font-family-regular);
+    /* Police de la navigation */
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     align-items: center;
-    /* padding: 5px 0; */
-    border-bottom: 5px solid black;
+    /* Aligne les éléments au centre verticalement */
+    border-bottom: var(--border-width) solid black;
+    /* Bordure en bas */
 }
 
 #commander {
-    background: linear-gradient(to left, rgb(49, 76, 97), rgb(124, 180, 179));
+    background: var(--gradient-reverse);
+    /* Fond avec gradient inversé */
     padding: 10px;
-    border-radius: 5px;
+    /* Padding */
+    border-radius: var(--border-radius);
+    /* Bordures arrondies */
     border: 0;
+    /* Pas de bordure */
     margin-bottom: 5px;
+    /* Marge en bas */
 }
 
 a#commander:hover {
     border: 0;
-    color: whitesmoke;
-    background: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+    /* Pas de bordure au survol */
+    color: var(--text-color);
+    /* Couleur du texte au survol */
+    background: var(--gradient);
+    /* Fond avec gradient */
 }
 
 a.logo figure {
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     align-items: center;
-    font-family: future_edgeitalic;
+    /* Aligne les éléments au centre verticalement */
+    font-family: var(--font-family-italic);
+    /* Police italique */
     font-size: larger;
+    /* Taille du texte */
 }
 
 a.logo {
     border: none;
+    /* Pas de bordure */
 }
 
 a.logo img {
     width: 80px;
+    /* Largeur de l'image */
     margin-right: 50px;
+    /* Marge à droite */
 }
 
 main {
     padding-top: 100px;
+    /* Padding en haut */
     font-size: 1.2rem;
+    /* Taille de la police */
+    flex: 1 0 auto;
+    /* Prend tout l'espace disponible */
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-color) 35%, var(--secondary-color) 100%);
+    /* Gradient de fond */
+    /* background-repeat: no-repeat; */
+    /* Répétition de l'image de fond désactivée */
+    background-size: contain;
+    /* Ajuste la taille de l'image de fond */
 }
 
 main.presentation {
     background-image: url(../Images/people-7661651_1920.jpg);
+    /* Image de fond */
     background-size: cover;
+    /* Ajuste la taille de l'image de fond */
     background-position: bottom;
+    /* Position de l'image de fond */
     background-repeat: no-repeat;
+    /* Répétition de l'image de fond désactivée */
     padding: 20px;
+    /* Padding */
     padding-top: 120px;
+    /* Padding en haut */
 }
 
 main.presentation>section {
     background-color: rgba(255, 255, 255, 0.5);
+    /* Couleur de fond */
     width: 100%;
+    /* Largeur */
     max-width: 1024px;
+    /* Largeur maximale */
     margin: 0 auto;
+    /* Marge centrée */
     padding: 10px;
+    /* Padding */
     border-radius: 20px;
+    /* Bordures arrondies */
 }
 
 article {
     background-image: url(../Images/solar-system-11111_1280.jpg);
+    /* Image de fond */
     background-size: cover;
+    /* Ajuste la taille de l'image de fond */
     height: 700px;
+    /* Hauteur */
     position: relative;
+    /* Position relative */
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     flex-direction: column;
+    /* Disposition en colonne */
     justify-content: center;
+    /* Aligne les éléments au centre verticalement */
 }
 
 #horloge {
     position: absolute;
+    /* Position absolue */
     top: 10%;
+    /* En haut à 10% */
     right: 20%;
-    color: whitesmoke;
-    font-family: digital_numbersregular;
+    /* À droite à 20% */
+    color: var(--text-color);
+    /* Couleur du texte */
+    font-family: var(--font-family-digital);
+    /* Police numérique */
     font-size: xx-large;
+    /* Taille du texte */
 }
 
 .miseenavant {
-    color: whitesmoke;
+    color: var(--text-color);
+    /* Couleur du texte */
     margin-left: 10%;
-
+    /* Marge à gauche */
 }
 
 .miseenavant h1,
 .miseenavant h2 {
     text-align: left;
+    /* Aligne le texte à gauche */
 }
 
 h1:not(.miseenavant h1),
 h2:not(.miseenavant h2) {
     background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(124, 180, 179, 0.5));
+    /* Gradient de fond */
     padding: 10px;
+    /* Padding */
     border: 0;
+    /* Pas de bordure */
     margin-bottom: 5px;
+    /* Marge en bas */
 }
 
 .comptearebour {
-    font-family: digital_numbersregular;
+    font-family: var(--font-family-digital);
+    /* Police numérique */
 }
 
 footer {
     text-align: center;
+    /* Aligne le texte au centre */
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     justify-content: space-around;
+    /* Espace autour des éléments */
     flex-wrap: wrap;
+    /* Permet le retour à la ligne */
     padding: 20px;
-    background: rgb(49, 76, 97);
-    color: whitesmoke;
+    /* Padding */
+    background: var(--primary-color);
+    /* Couleur de fond */
+    color: var(--text-color);
+    /* Couleur du texte */
+    flex-shrink: 0;
+    /* Empêche le pied de page de se rétrécir */
 }
 
 footer>a {
-    color: whitesmoke;
-    border-color: rgb(49, 76, 97);
-    border-bottom: 5px solid;
+    color: var(--text-color);
+    /* Couleur du texte des liens dans le pied de page */
+    border-color: var(--primary-color);
+    /* Couleur de la bordure */
+    border-bottom: var(--border-width) solid;
+    /* Bordure en bas */
     border-left: 0;
+    /* Pas de bordure à gauche */
     border-right: 0;
+    /* Pas de bordure à droite */
     border-top: 0;
-    font-family: future_edgeregular;
+    /* Pas de bordure en haut */
+    font-family: var(--font-family-regular);
+    /* Police régulière */
 }
 
 footer>a:hover {
-    color: rgb(124, 180, 179);
+    color: var(--secondary-color);
+    /* Couleur du texte au survol */
     border-image-slice: 1;
-    border-image-source: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+    /* Tranche de l'image de bordure */
+    border-image-source: var(--gradient);
+    /* Source de l'image de bordure */
 }
 
 footer>p {
     width: 100%;
+    /* Largeur */
 }
 
 #modal {
     background-color: rgba(0, 0, 0, 0.7);
+    /* Couleur de fond */
     position: fixed;
+    /* Position fixe */
     top: 0;
+    /* En haut */
     left: 0;
+    /* À gauche */
     right: 0;
+    /* À droite */
     bottom: 0;
+    /* En bas */
     z-index: 2;
+    /* Priorité de superposition */
     display: none;
+    /* Masqué par défaut */
     justify-content: center;
+    /* Aligne les éléments au centre horizontalement */
     align-items: center;
+    /* Aligne les éléments au centre verticalement */
 }
 
 #modal.active {
     display: flex;
+    /* Affiché en Flexbox */
 }
 
 #modal>#content {
     position: relative;
+    /* Position relative */
     padding: 10px;
+    /* Padding */
     width: 40%;
-    border: 5px solid;
-    background-color: whitesmoke;
+    /* Largeur */
+    border: var(--border-width) solid;
+    /* Bordure */
+    background-color: var(--text-color);
+    /* Couleur de fond */
     border-image-slice: 1;
-    border-image-source: linear-gradient(135deg, rgb(49, 76, 97), rgb(124, 180, 179));
+    /* Tranche de l'image de bordure */
+    border-image-source: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Source de l'image de bordure */
 }
 
 #modal>#content>#close {
     float: right;
+    /* Flottant à droite */
     font-size: 25px;
-    color: rgb(49, 76, 97);
+    /* Taille du texte */
+    color: var(--primary-color);
+    /* Couleur du texte */
     cursor: pointer;
+    /* Curseur de la souris */
 }
 
 .vedettes {
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     justify-content: space-around;
+    /* Espace autour des éléments */
     background-image: url(../Images/BGvedettes.png);
+    /* Image de fond */
     background-size: cover;
+    /* Ajuste la taille de l'image de fond */
     background-repeat: no-repeat;
+    /* Répétition de l'image de fond désactivée */
     background-position: 50% 50%;
+    /* Position de l'image de fond */
 }
 
 .vedettes>figure {
     box-sizing: border-box;
+    /* Inclut le padding et la bordure dans la largeur et la hauteur */
     position: relative;
+    /* Position relative */
     width: 203px;
+    /* Largeur */
     color: white;
+    /* Couleur du texte */
     height: 984px;
+    /* Hauteur */
     border-radius: 15px;
-    border: 5px solid rgb(49, 76, 97);
-    /* border-image-slice: 1;
-        border-image-source: linear-gradient(135deg, rgb(49, 76, 97), rgb(124, 180, 179)); */
+    /* Bordures arrondies */
+    border: var(--border-width) solid var(--primary-color);
+    /* Bordure */
 }
 
 .vedettes>figure::before {
     background-image: url(../Images/FondFigure193x174.png);
+    /* Image de fond */
     background-size: cover;
+    /* Ajuste la taille de l'image de fond */
     z-index: 1;
+    /* Priorité de superposition */
     position: absolute;
+    /* Position absolue */
     width: 100%;
+    /* Largeur */
     height: 100%;
+    /* Hauteur */
     content: " ";
+    /* Contenu vide */
 }
 
 .vedettes>figure>img {
     border-radius: 10px;
+    /* Bordures arrondies */
 }
 
 .vedettes>figure>figcaption {
     position: absolute;
+    /* Position absolue */
     padding: 10px;
+    /* Padding */
     bottom: 0;
+    /* En bas */
     text-align: center;
-    font-family: future_edgeregular;
+    /* Aligne le texte au centre */
+    font-family: var(--font-family-regular);
+    /* Police régulière */
     height: 320px;
+    /* Hauteur */
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     flex-direction: column;
+    /* Disposition en colonne */
     justify-content: space-around;
+    /* Espace autour des éléments */
     z-index: 2;
-    /* border: 1px solid white; */
+    /* Priorité de superposition */
 }
 
 .btn {
-    background: linear-gradient(to left, rgb(49, 76, 97), rgb(124, 180, 179));
+    background: var(--gradient-reverse);
+    /* Fond avec gradient inversé */
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid whitesmoke;
+    /* Padding */
+    border-radius: var(--border-radius);
+    /* Bordures arrondies */
+    border: 1px solid var(--text-color);
+    /* Bordure */
     margin-bottom: 5px;
-    color: whitesmoke;
-    font-family: future_edgeregular;
+    /* Marge en bas */
+    color: var(--text-color);
+    /* Couleur du texte */
+    font-family: var(--font-family-regular);
+    /* Police régulière */
 }
 
 .btn:hover {
-    background: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+    background: var(--gradient);
+    /* Fond avec gradient */
 }
 
 #produits {
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     flex-wrap: wrap;
+    /* Permet le retour à la ligne */
     justify-content: space-around;
+    /* Espace autour des éléments */
     padding: 20px;
+    /* Padding */
     padding-top: 120px;
+    /* Padding en haut */
 }
 
 #produits.products {
     padding: 20px;
+    /* Padding */
 }
 
 #produits>.produit {
     width: 40%;
+    /* Largeur */
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     flex-wrap: wrap;
+    /* Permet le retour à la ligne */
     justify-content: space-between;
+    /* Espace entre les éléments */
     border-radius: 20px;
+    /* Bordures arrondies */
     padding: 20px;
+    /* Padding */
     margin-bottom: 20px;
+    /* Marge en bas */
     background-color: rgba(255, 255, 255, 0.7);
-    /* background-image: url(../Images/Voyage.webp); */
-    background-size: cover;
+    /* Couleur de fond */
 }
 
 #produits.products>.produit {
     width: 100%;
+    /* Largeur */
 }
 
 #produits>.produit>figure {
     margin: 0;
+    /* Pas de marge */
 }
 
 #produits>.produit>figure>img {
     border-radius: 10px;
+    /* Bordures arrondies */
 }
 
 #produits>.produit>article {
     background-image: none;
+    /* Pas d'image de fond */
     height: auto;
+    /* Hauteur automatique */
     padding: 20px;
-    /* background-color: rgba(255, 255, 255, 0.7); */
+    /* Padding */
     border-radius: 10px;
+    /* Bordures arrondies */
 }
 
 #produits>.produit>figure,
 #produits>.produit>aside {
     box-sizing: border-box;
+    /* Inclut le padding et la bordure dans la largeur et la hauteur */
     width: 49%;
-
+    /* Largeur */
 }
 
 #produits>.produit>aside {
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     flex-direction: column;
+    /* Disposition en colonne */
     justify-content: space-around;
+    /* Espace autour des éléments */
     align-items: center;
+    /* Aligne les éléments au centre horizontalement */
 }
 
 #produits>.produit>aside>div {
     box-sizing: border-box;
-    width: 49%;
-    /* background-color: rgba(255, 255, 255, 0.7); */
-    border-radius: 10px;
+    /* Inclut le padding et la bordure dans la largeur et la hauteur */
     width: 100%;
+    /* Largeur */
     padding: 10px;
+    /* Padding */
+    border-radius: 10px;
+    /* Bordures arrondies */
 }
 
 #produits>.produit>aside>div>h4 {
     color: red;
+    /* Couleur du texte */
     font-weight: bold;
+    /* Texte en gras */
     font-size: 1.5rem;
+    /* Taille du texte */
 }
 
 .carousel {
     width: 90%;
+    /* Largeur */
     max-width: 600px;
+    /* Largeur maximale */
     overflow: hidden;
+    /* Masque le débordement */
     position: relative;
+    /* Position relative */
     border-radius: 15px;
+    /* Bordures arrondies */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    /* Ombre de la boîte */
     margin: 50px auto;
+    /* Marge centrée */
 }
 
 .carousel-track {
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     transition: transform 0.5s ease-in-out;
+    /* Transition de transformation */
 }
 
 .carousel-slide {
     min-width: 100%;
+    /* Largeur minimale */
     box-sizing: border-box;
+    /* Inclut le padding et la bordure dans la largeur et la hauteur */
     text-align: center;
+    /* Aligne le texte au centre */
     padding: 20px;
+    /* Padding */
     background: rgba(255, 255, 255, 0.1);
+    /* Couleur de fond */
 }
 
 .carousel-slide img {
     width: 100px;
+    /* Largeur de l'image */
     height: 100px;
+    /* Hauteur de l'image */
     border-radius: 50%;
+    /* Bordures arrondies */
     border: 2px solid #fff;
+    /* Bordure */
 }
 
 .carousel-slide h3 {
     margin: 15px 0 5px;
-    color: whitesmoke;
+    /* Marge */
+    color: var(--text-color);
+    /* Couleur du texte */
 }
 
 .carousel-slide p {
     font-size: 0.9em;
+    /* Taille du texte */
     opacity: 0.8;
+    /* Opacité */
 }
 
 .carousel-slide .bio {
     margin-top: 10px;
+    /* Marge en haut */
     font-size: 0.85em;
-    color: whitesmoke;
+    /* Taille du texte */
+    color: var(--text-color);
+    /* Couleur du texte */
 }
 
 .carousel-buttons {
     position: absolute;
+    /* Position absolue */
     top: 50%;
+    /* En haut à 50% */
     transform: translateY(-50%);
+    /* Translation verticale */
     width: 100%;
+    /* Largeur */
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     justify-content: space-between;
+    /* Espace entre les éléments */
     pointer-events: none;
+    /* Désactive les événements de pointeur */
 }
 
 .carousel-buttons button {
     pointer-events: all;
+    /* Active les événements de pointeur */
     background: rgba(0, 0, 0, 0.5);
+    /* Couleur de fond */
     border: none;
+    /* Pas de bordure */
     color: #fff;
+    /* Couleur du texte */
     padding: 10px;
+    /* Padding */
     border-radius: 50%;
+    /* Bordures arrondies */
     cursor: pointer;
+    /* Curseur de la souris */
     transition: background 0.3s;
+    /* Transition de fond */
 }
 
 .carousel-buttons button:hover {
     background: rgba(0, 0, 0, 0.8);
-}
-
-.carousel-buttons {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    pointer-events: none;
-}
-
-.carousel-buttons button {
-    pointer-events: all;
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: #fff;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.carousel-buttons button:hover {
-    background: rgba(0, 0, 0, 0.8);
+    /* Couleur de fond au survol */
 }
 
 main.equipe {
     text-align: center;
+    /* Aligne le texte au centre */
     margin-bottom: 50px;
+    /* Marge en bas */
 }
 
 table.cal_calendrier {
     width: 70%;
+    /* Largeur */
     margin: 50px auto;
-    color: whitesmoke;
-    border: 1px solid whitesmoke;
+    /* Marge centrée */
+    color: var(--text-color);
+    /* Couleur du texte */
+    border: 1px solid var(--text-color);
+    /* Bordure */
     padding: 5px;
+    /* Padding */
     border-radius: 10px;
+    /* Bordures arrondies */
     background-image: url(../Images/BGvedettes.png);
+    /* Image de fond */
     background-size: cover;
+    /* Ajuste la taille de l'image de fond */
     background-repeat: no-repeat;
+    /* Répétition de l'image de fond désactivée */
     background-position: 50% 50%;
+    /* Position de l'image de fond */
 }
 
 table.cal_calendrier th {
     text-align: left;
+    /* Aligne le texte à gauche */
     font-size: larger;
+    /* Taille du texte */
 }
 
 table.cal_calendrier th.navigation {
     text-align: center;
+    /* Aligne le texte au centre */
 }
 
 table.cal_calendrier td {
     width: calc(100% / 7);
+    /* Largeur */
     height: 100px;
+    /* Hauteur */
     vertical-align: top;
+    /* Aligne le contenu en haut */
     position: relative;
+    /* Position relative */
 }
 
 table.cal_calendrier td.cal_aujourdhui {
     color: black;
+    /* Couleur du texte */
     font-weight: bold;
+    /* Texte en gras */
 }
 
 table.cal_calendrier td.cal_jours_av_ap {
     color: #555;
+    /* Couleur du texte */
 }
 
 img.depart {
     width: 70px;
+    /* Largeur de l'image */
     position: absolute;
+    /* Position absolue */
     top: 15px;
+    /* En haut à 15px */
     left: 15px;
+    /* À gauche à 15px */
 }
 
 div.navCal {
     width: 400px;
+    /* Largeur */
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     margin: 10px auto;
+    /* Marge centrée */
     justify-content: space-around;
+    /* Espace autour des éléments */
 }
 
 a.jourj,
 a.now {
-    color: whitesmoke;
+    color: var(--text-color);
+    /* Couleur du texte */
     width: 150px;
+    /* Largeur */
     text-align: center;
+    /* Aligne le texte au centre */
     display: block;
+    /* Affichage en bloc */
     padding: 0 10px;
-    border: 1px solid whitesmoke
+    /* Padding */
+    border: 1px solid var(--text-color);
+    /* Bordure */
 }
 
 a.jourj:hover,
 a.now:hover {
     border-image-slice: 1;
-    border-image-source: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+    /* Tranche de l'image de bordure */
+    border-image-source: var(--gradient);
+    /* Source de l'image de bordure */
 }
 
 .contact {
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     flex-wrap: wrap;
+    /* Permet le retour à la ligne */
     width: 100%;
+    /* Largeur */
     justify-content: space-between;
+    /* Espace entre les éléments */
 }
 
 .contact h1 {
     width: 100%;
+    /* Largeur */
 }
 
 .contact aside {
     width: 50%;
+    /* Largeur */
 }
 
 .contact section {
     width: 50%;
+    /* Largeur */
     background-image: url(../Images/BGvedettes.png);
+    /* Image de fond */
     background-size: cover;
+    /* Ajuste la taille de l'image de fond */
     background-repeat: no-repeat;
+    /* Répétition de l'image de fond désactivée */
     background-position: 50% 50%;
+    /* Position de l'image de fond */
 }
 
 .contact #contactForm {
     width: 90%;
+    /* Largeur */
     margin: 0 auto;
+    /* Marge centrée */
 }
 
 .form-group {
-    /* background-color: rgba(255, 255, 255, 0.5); */
     margin: 10px 0;
+    /* Marge */
     padding: 10px;
+    /* Padding */
     border-radius: 5px;
+    /* Bordures arrondies */
     width: 100%;
+    /* Largeur */
     display: flex;
-    border: 1px solid whitesmoke;
+    /* Utilise Flexbox pour organiser le contenu */
+    border: 1px solid var(--text-color);
+    /* Bordure */
     flex-wrap: wrap;
+    /* Permet le retour à la ligne */
 }
 
 .form-group.editor {
     display: block;
+    /* Affichage en bloc */
     background-color: rgba(255, 255, 255, 0.7);
+    /* Couleur de fond */
 }
 
 label {
     display: block;
+    /* Affichage en bloc */
     margin-bottom: 5px;
+    /* Marge en bas */
     width: 30%;
-    font-family: future_edgeregular;
+    /* Largeur */
+    font-family: var(--font-family-regular);
+    /* Police régulière */
     font-weight: normal;
-    color: whitesmoke;
+    /* Poids de la police */
+    color: var(--text-color);
+    /* Couleur du texte */
 }
 
 .form-group.editor label {
-    color: rgb(49, 76, 97);
+    color: var(--primary-color);
+    /* Couleur du texte */
 }
 
 .buttons {
     display: flex;
+    /* Utilise Flexbox pour organiser le contenu */
     width: 100%;
+    /* Largeur */
     justify-content: space-around;
+    /* Espace autour des éléments */
 }
 
 .buttons>button {
     cursor: pointer;
-    background: linear-gradient(to left, rgb(49, 76, 97), rgb(124, 180, 179));
+    /* Curseur de la souris */
+    background: var(--gradient-reverse);
+    /* Fond avec gradient inversé */
     padding: 10px;
-    border-radius: 5px;
+    /* Padding */
+    border-radius: var(--border-radius);
+    /* Bordures arrondies */
     border: 0;
-    color: whitesmoke;
-    font-family: future_edgeregular;
+    /* Pas de bordure */
+    color: var(--text-color);
+    /* Couleur du texte */
+    font-family: var(--font-family-regular);
+    /* Police régulière */
     font-weight: normal;
+    /* Poids de la police */
     width: 200px;
+    /* Largeur */
 }
 
 .buttons>button:hover {
-    background: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+    background: var(--gradient);
+    /* Fond avec gradient */
 }
 
 input.texte {
     width: 70%;
+    /* Largeur */
     padding: 8px;
+    /* Padding */
     box-sizing: border-box;
+    /* Inclut le padding et la bordure dans la largeur et la hauteur */
 }
 
 #editor {
     width: 100%;
+    /* Largeur */
 }
 
 .error {
     color: red;
-    /* border: 1px solid red; */
+    /* Couleur du texte */
     border-radius: 5px;
+    /* Bordures arrondies */
     width: 100%;
+    /* Largeur */
     margin-top: 10px;
+    /* Marge en haut */
     padding: 0 10px;
+    /* Padding */
 }
