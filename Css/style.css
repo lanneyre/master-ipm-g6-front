@@ -335,6 +335,10 @@ footer>p {
     padding-top: 120px;
 }
 
+#produits.products {
+    padding: 20px;
+}
+
 #produits>.produit {
     width: 40%;
     display: flex;
@@ -346,6 +350,10 @@ footer>p {
     background-color: rgba(255, 255, 255, 0.7);
     /* background-image: url(../Images/Voyage.webp); */
     background-size: cover;
+}
+
+#produits.products>.produit {
+    width: 100%;
 }
 
 #produits>.produit>figure {
@@ -494,4 +502,168 @@ main.equipe {
     margin-bottom: 50px;
 }
 
-main.equipe .btn {}
+table.cal_calendrier {
+    width: 70%;
+    margin: 50px auto;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    padding: 5px;
+    border-radius: 10px;
+    background-image: url(../Images/BGvedettes.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+table.cal_calendrier th {
+    text-align: left;
+    font-size: larger;
+}
+
+table.cal_calendrier th.navigation {
+    text-align: center;
+}
+
+table.cal_calendrier td {
+    width: calc(100% / 7);
+    height: 100px;
+    vertical-align: top;
+    position: relative;
+}
+
+table.cal_calendrier td.cal_aujourdhui {
+    color: black;
+    font-weight: bold;
+}
+
+table.cal_calendrier td.cal_jours_av_ap {
+    color: #555;
+}
+
+img.depart {
+    width: 70px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+div.navCal {
+    width: 400px;
+    display: flex;
+    margin: 10px auto;
+    justify-content: space-around;
+}
+
+a.jourj,
+a.now {
+    color: whitesmoke;
+    width: 150px;
+    text-align: center;
+    display: block;
+    padding: 0 10px;
+    border: 1px solid whitesmoke
+}
+
+a.jourj:hover,
+a.now:hover {
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+}
+
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.contact h1 {
+    width: 100%;
+}
+
+.contact aside {
+    width: 50%;
+}
+
+.contact section {
+    width: 50%;
+    background-image: url(../Images/BGvedettes.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.contact #contactForm {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.form-group {
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    border: 1px solid whitesmoke;
+    flex-wrap: wrap;
+}
+
+.form-group.editor {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    width: 30%;
+    font-family: future_edgeregular;
+    font-weight: normal;
+    color: whitesmoke;
+}
+
+.form-group.editor label {
+    color: rgb(49, 76, 97);
+}
+
+.buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.buttons>button {
+    cursor: pointer;
+    background: linear-gradient(to left, rgb(49, 76, 97), rgb(124, 180, 179));
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    color: whitesmoke;
+    font-family: future_edgeregular;
+    font-weight: normal;
+    width: 200px;
+}
+
+.buttons>button:hover {
+    background: linear-gradient(to right, rgb(49, 76, 97), rgb(124, 180, 179));
+}
+
+input.texte {
+    width: 70%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#editor {
+    width: 100%;
+}
+
+.error {
+    color: red;
+    /* border: 1px solid red; */
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 10px;
+}

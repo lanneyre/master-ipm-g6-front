@@ -8,7 +8,10 @@
 
     <link rel="stylesheet" href="Css/style.css">
     <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
     <script src="https://kit.fontawesome.com/9fa37b8b8a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
     <script src="Js/script.js"></script>
 </head>
 
@@ -25,21 +28,53 @@
             <!-- menu de navigation -->
             <a href="presentation.html" class="navtop"><i
                     class="fa-solid fa-person-chalkboard"></i>&nbsp;Présentation</a>
-            <a href="apropos.html" class="navtop"><i class="fa-solid fa-gear"></i>&nbsp;A propos</a>
+            <a href="calendrier.html" class="navtop"><i class="fa-solid fa-rocket"></i>&nbsp;Calendrier</a>
             <a href="produits.html" class="navtop"><i class="fa-solid fa-shuttle-space"></i>&nbsp;Nos produits</a>
             <a href="equipe.html" class="navtop"><i class="fa-solid fa-people-group"></i>&nbsp;L'équipe</a>
             <a href="contact.html" class="navtop"><i class="fa-solid fa-envelope"></i>&nbsp;Contact</a>
             <a href="#" class="navtop" id="commander"><i class="fa-solid fa-basket-shopping"></i>&nbsp;Commander</a>
         </nav>
     </header>
-    <main>
+    <main class="contact">
+        <section>
+            <h1>Formulaire de Contact</h1>
 
+            <form id="contactForm" method="post" action="">
+                <div class="form-group">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" class="texte">
+                    <div class="error" id="nameError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail :</label>
+                    <input type="email" id="email" name="email" class="texte">
+                    <div class="error" id="emailError"></div>
+                </div>
+
+                <div class="form-group editor">
+                    <label for="message">Message :</label>
+                    <div class="error" id="messageError"></div>
+                    <div id="editor">
+                    </div>
+
+                </div>
+
+                <div class="buttons">
+                    <button type="submit">Envoyer</button>
+                    <button type="reset">Annuler</button>
+                </div>
+            </form>
+        </section>
+        <aside>
+            <img src="Images/contact.webp" alt="">
+        </aside>
     </main>
 
     <footer>
         <!-- réseau sociaux, contact, -->
         <p>AstroVoyage™ - Copyright 2025&copy; - Le groupe 6 - Tous droits reservés </p>
-        <a href="apropos.html" class=""><i class="fa-solid fa-gear"></i>&nbsp;A propos</a>
+        <a href="calendrier.html" class=""><i class="fa-solid fa-rocket"></i>&nbsp;Calendrier</a>
         <a href="equipe.html" class=""><i class="fa-solid fa-people-group"></i>&nbsp;L'équipe</a>
         <a href="contact.html" class=""><i class="fa-solid fa-envelope"></i>&nbsp;Contact</a>
     </footer>
