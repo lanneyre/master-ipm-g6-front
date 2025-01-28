@@ -40,16 +40,54 @@
             <h1>Formulaire de Contact</h1>
 
             <form id="contactForm" method="post" action="">
+                <input type="hidden" name="_csrf" value="4dd9efbe-b878-4fe3-a7a0-b4d30b7103af">
+                <h2 class="section-title first_title">
+                    1. Choisissez le sujet de votre demande
+                </h2>
+
                 <div class="form-group">
-                    <label for="name">Nom :</label>
-                    <input type="text" id="name" name="name" class="texte">
+                    <label for="mailDest">J'ai une question sur* :</label>
+                    <select id="motif" name="motif">
+                        <option value=""></option>
+                        <option value="BACKOFF">Demande concernant votre Réservation</option>
+                        <option value="CARNET">Documents de Voyage</option>
+                        <option value="DEVIS">Demande de Devis ou de Réservation</option>
+                        <option value="DEVISG">Groupes (+15 passagers) - Demande de Devis ou de Réservation</option>
+                        <option value="MARKET">Partenariat Marketing &amp; Commercial</option>
+                        <option value="PRESSE">Relation Presse</option>
+                        <option value="PRODUCTION">Partenariat Production</option>
+                    </select>
+                    <div class="error" id="motifError"></div>
+
+                </div>
+
+                <h2 class="section-title first_title">
+                    2. Contactez-nous
+                </h2>
+                <div class="form-group">
+                    <label for="name">Nom et Prénom* :</label>
+                    <input type="text" id="name" name="name" class="texte" placeholder="Saisissez votre nom et prénom">
                     <div class="error" id="nameError"></div>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">E-mail :</label>
-                    <input type="email" id="email" name="email" class="texte">
+                    <label for="dossier">En nous précisant votre numéro de dossier :</label>
+                    <input type="text" id="dossier" name="dossier" class="texte"
+                        placeholder="Saisissez votre numéro de référence">
+                    <div class="error" id="dossierError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresse email* :</label>
+                    <input type="email" id="email" name="email" class="texte" placeholder="Saisissez votre email"
+                        data-nlok-ref-guid="b59293da-c3c8-4b5a-d7fe-f4f20c5ea18a" autocomplete="off">
                     <div class="error" id="emailError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone * :</label>
+                    <input type="tel" id="phone" name="phone" class="texte"
+                        placeholder="Saisissez votre numéro de tél.">
+                    <div class="error" id="phoneError"></div>
                 </div>
 
                 <div class="form-group editor">
@@ -66,8 +104,18 @@
                 </div>
             </form>
         </section>
-        <aside>
-            <img src="Images/contact.webp" alt="">
+        <aside class="map">
+            <!-- <img src="Images/contact.webp" alt=""> -->
+            <!-- Conteneur de la carte avec un fond vert foncé -->
+            <div class="map-container">
+                <img width="347" height="340" src="https://www.cite-espace.com/assets/uploads/carte-france.svg"
+                    alt="Carte de France">
+
+                <!-- Bouton positionné sur la carte -->
+                <a href="#" class="btn-on-map">
+                    Comment venir ?
+                </a>
+            </div>
         </aside>
     </main>
 

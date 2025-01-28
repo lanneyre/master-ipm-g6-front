@@ -1,51 +1,54 @@
-//créer le compte à rebours en créant une date à partir de la soustraction de la date d'aujourd'hui à la date de départ.
+// Créer le compte à rebours en créant une date à partir de la soustraction de la date d'aujourd'hui à la date de départ.
 function compteARebours() {
-    let dateDepart = (new Date(2342, 10, 4, 12, 0, 0));
-    let now = (new Date());
+    let dateDepart = new Date(2342, 10, 4, 12, 0, 0); // Date de départ
+    let now = new Date(); // Date actuelle
 
-    let test = new Date((dateDepart.getFullYear() - now.getFullYear()), (dateDepart.getMonth() - now.getMonth()), (dateDepart.getDate() - now.getDate()), (dateDepart.getHours() - now.getHours()), (dateDepart.getMinutes() - now.getMinutes()), (dateDepart.getSeconds() - now.getSeconds()));
+    // Calcul de la différence entre la date de départ et la date actuelle
+    let test = new Date(
+        (dateDepart.getFullYear() - now.getFullYear()),
+        (dateDepart.getMonth() - now.getMonth()),
+        (dateDepart.getDate() - now.getDate()),
+        (dateDepart.getHours() - now.getHours()),
+        (dateDepart.getMinutes() - now.getMinutes()),
+        (dateDepart.getSeconds() - now.getSeconds())
+    );
 
+    // Mise à jour du texte du compte à rebours
     document.getElementById("comptearebour").innerText =
-        test.getFullYear().toLocaleString("fr", { minimumIntegerDigits: 3, useGrouping: false }) + " ans "
-        + test.getMonth().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " mois "
-        + test.getDate().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " jours "
-        + test.getHours().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " heures "
-        + test.getMinutes().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " minutes "
-        + test.getSeconds().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " secondes "
+        test.getFullYear().toLocaleString("fr", { minimumIntegerDigits: 3, useGrouping: false }) + " ans " +
+        test.getMonth().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " mois " +
+        test.getDate().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " jours " +
+        test.getHours().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " heures " +
+        test.getMinutes().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " minutes " +
+        test.getSeconds().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + " secondes ";
 }
 
-//affiche l'horloge
+// Affiche l'horloge
 function horloge() {
-    let h = new Date();
+    let h = new Date(); // Date actuelle
     document.getElementById("horloge").innerText =
-        h.getHours().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + ":"
-        + h.getMinutes().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + ":"
-        + h.getSeconds().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false });
+        h.getHours().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + ":" +
+        h.getMinutes().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false }) + ":" +
+        h.getSeconds().toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false });
 }
 
-//fonction qui permet de créer une boîte de dialogue plus sympatique que celle de js
+// Fonction qui permet de créer une boîte de dialogue plus sympathique que celle de JS
 function modal(titre, message) {
-    // console.log(typeof (message) == "object");
-    document.querySelector("#modal>#content>div").classList.remove("products")
-    document.querySelector("#modal>#content>div").setAttribute("id", "")
+    document.querySelector("#modal>#content>div").classList.remove("products");
+    document.querySelector("#modal>#content>div").setAttribute("id", "");
     if (titre && typeof (message) == "object") {
-        //console.log("test");
         document.querySelector("#modal>#content>h3").innerText = titre;
-        document.querySelector("#modal>#content>div").innerHTML = ""
-        document.querySelector("#modal>#content>div").setAttribute("id", "produits")
-        document.querySelector("#modal>#content>div").classList.add("products")
-        document.querySelector("#modal>#content>div").appendChild(message)
-    }
-    else if (titre && message) {
+        document.querySelector("#modal>#content>div").innerHTML = "";
+        document.querySelector("#modal>#content>div").setAttribute("id", "produits");
+        document.querySelector("#modal>#content>div").classList.add("products");
+        document.querySelector("#modal>#content>div").appendChild(message);
+    } else if (titre && message) {
         document.querySelector("#modal>#content>h3").innerText = titre;
         document.querySelector("#modal>#content>div").innerHTML = message;
-
-
     }
     if (!document.querySelector("#modal").classList.contains("active")) {
         document.querySelector("#modal").classList.add("active");
     }
-
 }
 
 let produits = [
@@ -61,89 +64,83 @@ let produits = [
     { titre: "Vol libre autour d’Uranus", image: "Uranus.png", desc: "Profitez d’un vol en combinaison spatiale pour admirer les paysages renversants et les anneaux discrets de cette planète mystérieuse.", prix: 89000000.00, dateDepart: new Date(2343, 6, 15, 12, 0, 0) },
     { titre: "Safari météorique dans la ceinture d’astéroïdes", image: "Mars.png", desc: "Partez à la chasse aux météores et explorez les richesses minières de la ceinture d’astéroïdes, accompagnés par des guides spécialisés.", prix: 49000000.00, dateDepart: new Date(2343, 8, 23, 12, 0, 0) },
     { titre: "Excursion culturelle sur Vénus", image: "Venus.png", desc: "Découvrez les bases humaines installées dans les nuages de Vénus et apprenez l’histoire fascinante de la conquête de cette planète inhospitalière.", prix: 19000000.00, dateDepart: new Date(2342, 11, 29, 12, 0, 0) }
-]
+];
 
+// Filtre les produits par date de départ
 function filtrerProduitsParDate(dateCible) {
     return produits.filter(produit => produit.dateDepart.getTime() === dateCible.getTime());
 }
 
-
+// Crée un élément produit
 function createProduct(produit, btn) {
     if (typeof (btn) != "boolean") {
-        btn = true
+        btn = true;
     }
-    let sec = document.createElement("section")
-    sec.classList.add("produit")
+    let sec = document.createElement("section");
+    sec.classList.add("produit");
 
-    let fig = document.createElement("figure")
+    let fig = document.createElement("figure");
     sec.appendChild(fig);
-    let img = document.createElement("img")
-    img.setAttribute("src", "Images/src/" + produit.image)
-    img.setAttribute("alt", produit.titre)
+    let img = document.createElement("img");
+    img.setAttribute("src", "Images/src/" + produit.image);
+    img.setAttribute("alt", produit.titre);
     fig.appendChild(img);
-    let figc = document.createElement("figcaption")
+    let figc = document.createElement("figcaption");
     figc.innerHTML = "<h2>" + produit.titre + "</h2>";
     fig.appendChild(figc);
 
-    let asi = document.createElement("aside")
+    let asi = document.createElement("aside");
     sec.appendChild(asi);
-    let div = document.createElement("div")
-    //div.innerHTML = "<h2>" + produit.titre + "</h2>";
+    let div = document.createElement("div");
     asi.appendChild(div);
 
     let h = document.createElement("h4");
-    h.innerHTML = "Prix : " + (produit.prix).toLocaleString("fr") + " €"
+    h.innerHTML = "Prix : " + (produit.prix).toLocaleString("fr") + " €";
     div.appendChild(h);
     let p = document.createElement("p");
-    p.innerHTML = "Départ le " + (produit.dateDepart).toLocaleString()
+    p.innerHTML = "Départ le " + (produit.dateDepart).toLocaleString();
     div.appendChild(p);
 
     if (btn) {
-        let btn = document.createElement("button")
-        btn.classList.add("btn")
+        let btn = document.createElement("button");
+        btn.classList.add("btn");
         btn.innerHTML = "Réservez maintenant";
         asi.appendChild(btn);
     }
 
-
     let art = document.createElement("article");
-    art.innerHTML = produit.desc
+    art.innerHTML = produit.desc;
     sec.appendChild(art);
 
     return sec;
 }
 
+// Génère le calendrier
 function generateCalendar(d) {
-
     if (!d) {
         d = new Date();
     }
-    // je créais une variable tableau
     var table = document.createElement('table');
     table.className = "cal_calendrier";
-    // je vais chercher dans l'élément calendrier dans le dom et j'attache l'enfant table
     document.getElementById('calendrier').innerHTML = '';
     document.getElementById('calendrier').appendChild(table);
-    // first line 
+
     var tr = document.createElement('tr');
     table.appendChild(tr);
 
     var th = document.createElement('th');
-    th.classList.add("navigation")
-    // on fusionne 2 cellules
+    th.classList.add("navigation");
     th.setAttribute('colspan', '2');
 
-    // on attribue un boutton avec un evenement
     var button = document.createElement("button");
     button.innerHTML = "<<";
     button.setAttribute("id", "moinsUnAn");
     th.appendChild(button);
 
-    //l'evenement
     button.addEventListener("click", function () {
         generateCalendar(new Date(d.getFullYear() - 1, d.getMonth(), d.getDate()));
     });
-    // on attribue un boutton avec un evenement
+
     button = document.createElement("button");
     button.innerHTML = "<";
     button.setAttribute("id", "moinsUnMoi");
@@ -156,24 +153,16 @@ function generateCalendar(d) {
 
     th = document.createElement('th');
     th.setAttribute('colspan', '3');
-    th.classList.add("navigation")
+    th.classList.add("navigation");
     tr.appendChild(th);
 
-    // on a besoin d'une date
-
-    // on a besoin d'une variable mois contenant le texte
     var month = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
-    // on met ce qu'on veut
     th.innerHTML = month[d.getMonth()] + ' ' + d.getFullYear();
-    // on met ce qu'on veut mais le HTML ne sera pas interprété
-    // th.textContent = 
-    // version la plus propre, cohérence dans la méthode
-    // th.appendChild(document.createTextNode(""));
 
     th = document.createElement('th');
-    th.classList.add("navigation")
+    th.classList.add("navigation");
     th.setAttribute('colspan', '2');
-    // on attribue un boutton avec un evenement
+
     button = document.createElement("button");
     button.innerHTML = ">";
     button.setAttribute("id", "plusUnMois");
@@ -197,7 +186,6 @@ function generateCalendar(d) {
     tr = document.createElement('tr');
     table.appendChild(tr);
 
-
     for (i = 0; i < day.length; i++) {
         th = document.createElement("th");
         th.innerHTML = day[i];
@@ -211,9 +199,7 @@ function generateCalendar(d) {
     var firstDay = new Date(d.getFullYear(), d.getMonth(), 1).getDay();
 
     var numero = 1;
-    // variable permettant d'afficher les jours du mois suivant
     var nextMonth = 1;
-    // variable permettant d'afficher les jours du mois précédent
     var previousMonth = daysInMonth(d.getFullYear(), d.getMonth() - 1) - firstDay + 1;
 
     for (var i = 0; i < 6; i++) {
@@ -222,18 +208,14 @@ function generateCalendar(d) {
         for (var j = 0; j < 7; j++) {
             var td = document.createElement('td');
             tr.appendChild(td);
-            // console.log(i);
             if (i == 0 && j < firstDay) {
                 td.innerHTML = (previousMonth++).toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false });
                 td.className = "cal_jours_av_ap";
             } else if (numero <= daysInMonth(d.getFullYear(), d.getMonth())) {
                 td.innerHTML = numero.toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false });
-                // Si j'arrive au dernier jour je ne rajoute pas d'autres lignes 
                 if (numero == daysInMonth(d.getFullYear(), d.getMonth())) {
                     i = 6;
                 }
-                // alert(new Date(d.getFullYear(), d.getMonth(), d.getDate()));
-                // si aujourdhui tombe a ce moment il faut le mettre en valeur
                 var aujourdhui = new Date();
                 if (aujourdhui.getFullYear() == d.getFullYear() && aujourdhui.getMonth() == d.getMonth() && aujourdhui.getDate() == numero) {
                     td.className = "cal_aujourdhui";
@@ -241,22 +223,19 @@ function generateCalendar(d) {
                 let dateCible = new Date(d.getFullYear(), d.getMonth(), numero, 12, 0, 0);
                 let sejour = filtrerProduitsParDate(dateCible);
                 if (sejour.length == 1) {
-                    //on rajoute l'event
-                    const s = sejour[0]
+                    const s = sejour[0];
                     let img = document.createElement("img");
                     img.setAttribute("src", "Images/src/" + s.image);
                     img.setAttribute("alt", s.titre);
-                    img.classList.add("depart")
+                    img.classList.add("depart");
 
                     img.addEventListener("click", () => {
-                        modal(s.titre, createProduct(s, false))
-                    })
-                    td.appendChild(img)
-                    //console.log(s)
+                        modal(s.titre, createProduct(s, false));
+                    });
+                    td.appendChild(img);
                 }
                 numero++;
             } else {
-                // je rajoute les numéros du mois suivant si besoin
                 td.innerHTML = (nextMonth++).toLocaleString("fr", { minimumIntegerDigits: 2, useGrouping: false });
                 td.className = "cal_jours_av_ap";
                 i = 6;
@@ -265,37 +244,39 @@ function generateCalendar(d) {
     }
 }
 
+function isValidPhoneNumber(phoneNumber) {
+    // Expression régulière pour vérifier les numéros de téléphone
+    const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+    // Exemple : +123456789 ou 123456789 pour un format basique
+    return phoneRegex.test(phoneNumber);
+}
 
 window.addEventListener("load", () => {
-
-
-
     let products = document.querySelector("#produits");
     if (products != null) {
         produits.forEach((produit) => {
-            let prod = createProduct(produit)
+            let prod = createProduct(produit);
             products.appendChild(prod);
             prod.querySelector(".btn").addEventListener("click", () => {
                 modal(produit.titre, produit.desc + "<br><br><strong>Les réservations ne sont pas encore ouvertes !</strong>");
-            })
-        })
+            });
+        });
     }
 
-    // Création d'une boîte de dialogue quand on click sur le boutton commander
+    // Création d'une boîte de dialogue quand on clique sur le bouton "commander"
     document.getElementById("commander").addEventListener("click", () => {
         modal("Page en construction", "Désolé, commander n'est pas pour tout de suite");
     });
 
-    //on récupère la liste des boutons des produits vedettes et on ajoute l'ouverture du modal avec un texte personnalisé
+    // On récupère la liste des boutons des produits vedettes et on ajoute l'ouverture du modal avec un texte personnalisé
     document.querySelectorAll(".vedettes .btn").forEach((elt) => {
         let t = (elt.parentElement.innerText).replaceAll("Réservez maintenant", "");
-        // console.log(t);
-
         elt.addEventListener("click", () => {
             modal(t, "Désolé, commander n'est pas pour tout de suite");
         });
-    })
-    //evenement pour fermer la modal
+    });
+
+    // Événement pour fermer la modal
     document.querySelector("#close").addEventListener("click", () => {
         document.querySelector("#modal").classList.remove("active");
     });
@@ -354,32 +335,32 @@ window.addEventListener("load", () => {
         startAutoPlay();
     }
 
-    //gestion du calendrier
+    // Gestion du calendrier
     if (document.querySelector('#calendrier') != null) {
-        generateCalendar()
+        generateCalendar();
     }
 
-    //temps réel
-    //lance CompteARebours toutes les secondes 
+    // Temps réel
+    // Lance CompteARebours toutes les secondes
     if (document.querySelector("#horloge") != null) {
         setInterval(horloge, 1000);
     }
-    //lance horloge toutes les secondes
+    // Lance horloge toutes les secondes
     if (document.querySelector("#comptearebour") != null) {
         setInterval(compteARebours, 1000);
     }
 
-    //pour charger les dates du calendrier 
+    // Pour charger les dates du calendrier
     if (document.querySelector("a.jourj") != null) {
         document.querySelector("a.jourj").addEventListener("click", () => {
-            generateCalendar(new Date(2342, 10, 4))
-        })
+            generateCalendar(new Date(2342, 10, 4));
+        });
     }
 
     if (document.querySelector("a.now") != null) {
         document.querySelector("a.now").addEventListener("click", () => {
-            generateCalendar(new Date())
-        })
+            generateCalendar(new Date());
+        });
     }
 
     if (document.querySelector("#editor")) {
@@ -393,20 +374,39 @@ window.addEventListener("load", () => {
 
         // Réinitialise les messages d'erreur
         document.getElementById('nameError').textContent = "";
+        document.getElementById('phoneError').textContent = "";
+        document.getElementById('dossierError').textContent = "";
+        document.getElementById('motifError').textContent = "";
         document.getElementById('emailError').textContent = "";
         document.getElementById('messageError').textContent = "";
 
         // Récupère les valeurs des champs
         const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const dossier = document.getElementById('dossier').value.trim();
+        const motif = document.getElementById('motif').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = quill.getText(); //document.getElementById('editor').innerHTML.trim();
-
 
         let isValid = true;
 
         // Validation du nom
         if (name === "") {
             document.getElementById('nameError').textContent = "Le nom est obligatoire.";
+            isValid = false;
+        }
+
+        // Validation du téléphone
+        if (phone === "") {
+            document.getElementById('phoneError').textContent = "Le téléphone est obligatoire.";
+            isValid = false;
+        } else if (!isValidPhoneNumber(phone)) {
+            document.getElementById('phoneError').textContent = "Le numéro de téléphone est mal formé.";
+            isValid = false;
+        }
+
+        if (motif === "") {
+            document.getElementById('motifError').textContent = "La raison est obligatoire";
             isValid = false;
         }
 
@@ -420,8 +420,7 @@ window.addEventListener("load", () => {
             isValid = false;
         }
 
-        // Validation du message
-        console.log(message.length);
+
 
         if (message.length < 15 || message === "<br>") {
             document.getElementById('messageError').textContent = "Le message doit contenir au moins 15 caractères.";
@@ -430,11 +429,12 @@ window.addEventListener("load", () => {
 
         // Si tout est valide, afficher un message ou envoyer le formulaire
         if (isValid) {
-
-
             const enrichedMessage = `<strong>Nom :</strong> ${name}<br><strong>E-mail :</strong> ${email}<br><strong>Votre message :</strong> ${quill.getSemanticHTML()}`;
-            modal("Votre message a bien été envoyé !", enrichedMessage)
+            modal("Votre message a bien été envoyé !", enrichedMessage);
         }
     });
 
-})
+    document.querySelector("a.btn-on-map").addEventListener("click", () => {
+        modal('Nous trouver', '<center><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11559.765391339615!2d1.493185!3d43.586938!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebda8aa57f62f%3A0x76e19e69940e4e52!2sCit%C3%A9%20de%20l&#39;espace!5e0!3m2!1sfr!2sfr!4v1738076726857!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></center>');
+    });
+});

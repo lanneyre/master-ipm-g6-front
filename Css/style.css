@@ -877,8 +877,6 @@ a.now:hover {
 .contact section {
     width: 50%;
     /* Largeur */
-    background-image: url(../Images/BGvedettes.png);
-    /* Image de fond */
     background-size: cover;
     /* Ajuste la taille de l'image de fond */
     background-repeat: no-repeat;
@@ -973,7 +971,8 @@ label {
     /* Fond avec gradient */
 }
 
-input.texte {
+input.texte,
+#selectOption {
     width: 70%;
     /* Largeur */
     padding: 8px;
@@ -985,6 +984,7 @@ input.texte {
 #editor {
     width: 100%;
     /* Largeur */
+    height: 100px
 }
 
 .error {
@@ -998,4 +998,58 @@ input.texte {
     /* Marge en haut */
     padding: 0 10px;
     /* Padding */
+}
+
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../Images/contact.webp);
+    /* Image de fond */
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+/* Conteneur avec fond vert foncé */
+.map-container {
+    position: relative;
+    background-color: var(--secondary-color);
+    /* Fond vert foncé */
+    width: 70%;
+    /* Largeur du conteneur */
+    height: auto;
+    /* Hauteur automatique pour s'ajuster à l'image */
+    padding: 20px;
+    border-radius: 15px;
+    /* Coins arrondis */
+    display: inline-block;
+}
+
+/* Style de l'image */
+.map-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    /* Coins arrondis pour l'image */
+}
+
+/* Style pour positionner le bouton sur la carte */
+.btn-on-map {
+    position: absolute;
+    top: 70%;
+    /* Ajuste cette valeur pour placer le bouton à l'endroit souhaité */
+    left: 60%;
+    /* Ajuste cette valeur pour placer le bouton à l'endroit souhaité */
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Changement de couleur au survol */
+.btn-on-map:hover {
+    background-color: black;
 }
